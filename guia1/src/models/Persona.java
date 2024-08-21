@@ -1,20 +1,24 @@
 package models;
 
+import java.util.UUID;
+
 public class Persona {
+    private String id;
     private String name;
     private String lastName;
     private Integer age;
 
-    public Persona() {
+    public Persona(){
+        this.id = UUID.randomUUID().toString();
     }
 
-    public Persona(String name) {
-        this.name = name;
+    public String getId() {
+        return id;
     }
 
-    public Persona(String name, String lastName) {
+    public Persona name(String name){
         this.name = name;
-        this.lastName = lastName;
+        return this;
     }
 
     public String getName() {
@@ -25,12 +29,22 @@ public class Persona {
         this.name = name;
     }
 
+    public Persona lastName(String lastName){
+        this.lastName = lastName;
+        return this;
+    }
+
     public String getLastName() {
         return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Persona age(int age){
+        this.age = age;
+        return this;
     }
 
     public Integer getAge() {
@@ -41,10 +55,19 @@ public class Persona {
         this.age = age;
     }
 
+    public void imprimir() {
+        System.out.println("Id..........: " + id);
+        System.out.println("Name........: " + name);
+        System.out.println("Last Name...: " + lastName);
+        System.out.println("Age.........: " + age);
+        System.out.println("______________________________________________");
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 '}';
