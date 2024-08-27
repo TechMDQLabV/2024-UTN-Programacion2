@@ -14,6 +14,7 @@ public class Personas {
     public void mostrar(){
         for(int i = 0; i < this.v; i++){
             this.personas[i].imprimir();
+            System.out.println("____________________________________________________");
         }
     }
 
