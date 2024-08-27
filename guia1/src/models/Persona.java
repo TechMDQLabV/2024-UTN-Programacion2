@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Persona {
@@ -7,6 +8,20 @@ public class Persona {
     private String name;
     private String lastName;
     private Integer age;
+    private LocalDate birthday;
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public Persona birthday(LocalDate birthday) {
+        this.birthday = birthday;
+        return this;
+    }
 
     public Persona(){
         this.id = UUID.randomUUID().toString();
@@ -60,16 +75,17 @@ public class Persona {
         System.out.println("Name........: " + name);
         System.out.println("Last Name...: " + lastName);
         System.out.println("Age.........: " + age);
-        System.out.println("______________________________________________");
+        System.out.println("Birthday....: " + birthday);
     }
 
     @Override
     public String toString() {
         return "Persona{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
+                ", birthday=" + birthday +
                 '}';
     }
 }
