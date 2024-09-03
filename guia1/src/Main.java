@@ -1,9 +1,6 @@
 import enums.Dias;
 import enums.Mes;
-import models.Alumno;
-import models.Persona;
-import models.Personas;
-import models.Profesor;
+import models.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -35,6 +32,7 @@ public class Main {
                     probandoAlumno();
                     break;
                 case 5:
+                    probandoJson();
                     break;
             }
         } while (option != 0);
@@ -117,5 +115,11 @@ public class Main {
                 .lastName("Argento"+cont++)
                 .age(56)
                 .birthday(getLocalDate("2017-02-09T10:43:19.667Z"));
+    }
+
+    private static void probandoJson(){
+        PersonsJSON personsJSON = new PersonsJSON();
+        Personas personas = personsJSON.getPersonas();
+        personas.mostrar();
     }
 }
