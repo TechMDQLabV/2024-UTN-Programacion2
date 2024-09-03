@@ -13,6 +13,11 @@ public class Personas {
 
     public void mostrar(){
         for(int i = 0; i < this.v; i++){
+            if(personas[i] instanceof Profesor){
+                System.out.println("<< Profesor >>");
+            } else if (personas[i] instanceof Alumno){
+                System.out.println("<< Alumno >>");
+            }
             this.personas[i].imprimir();
             System.out.println("____________________________________________________");
         }
