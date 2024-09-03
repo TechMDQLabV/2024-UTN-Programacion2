@@ -1,9 +1,10 @@
 package models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
-public class Persona {
+public abstract class Persona {
     private String id;
     private String name;
     private String lastName;
@@ -23,7 +24,7 @@ public class Persona {
         return this;
     }
 
-    public Persona(){
+    public Persona() {
         this.id = UUID.randomUUID().toString();
     }
 
@@ -31,7 +32,7 @@ public class Persona {
         return id;
     }
 
-    public Persona name(String name){
+    public Persona name(String name) {
         this.name = name;
         return this;
     }
@@ -44,7 +45,7 @@ public class Persona {
         this.name = name;
     }
 
-    public Persona lastName(String lastName){
+    public Persona lastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -57,7 +58,7 @@ public class Persona {
         this.lastName = lastName;
     }
 
-    public Persona age(int age){
+    public Persona age(int age) {
         this.age = age;
         return this;
     }
@@ -87,5 +88,15 @@ public class Persona {
                 ", age=" + age +
                 ", birthday=" + birthday +
                 '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(id);
+        result = 31 * result + Objects.hashCode(name);
+        result = 31 * result + Objects.hashCode(lastName);
+        result = 31 * result + Objects.hashCode(age);
+        result = 31 * result + birthday.hashCode();
+        return result;
     }
 }

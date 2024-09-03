@@ -1,6 +1,9 @@
+import enums.Dias;
+import enums.Mes;
 import models.Alumno;
 import models.Persona;
 import models.Personas;
+import models.Profesor;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -74,18 +77,22 @@ public class Main {
     private static void probandoPersonas() {
 
         Personas personas = new Personas(100);
-
-        Persona p = createPersona();
+        personas.cargar(createAlumno());
+        personas.cargar(createProfesor());
+        personas.cargar(createAlumno());
+        personas.cargar(createProfesor());
+        personas.cargar(createAlumno());
+        Persona p = createProfesor();
         personas.cargar(p);
-        personas.cargar(new Persona()
-                .name("Juana")
-                .lastName("Molina")
+        personas.cargar(new Profesor()
+                .name("Juan")
+                .lastName("Martinez")
                 .age(45));
         personas.cargar(createAlumno());
-        personas.cargar(new Persona().name("Anibal"));
-        personas.cargar(new Persona().lastName("Ramirez").age(57));
+        personas.cargar(new Profesor().name("Anibal"));
+        personas.cargar(new Profesor().lastName("Ramirez").age(57));
         personas.mostrar();
-
+        System.out.println(Dias.DOMINGO.getName() + Dias.DOMINGO.getOrden());
     }
 
     private static void probandoAlumno() {
@@ -96,7 +103,7 @@ public class Main {
 
     private static Alumno createAlumno(){
         return (Alumno) new Alumno()
-                .legajo("1234")
+                .legajo("234")
                 .carrera("TUP")
                 .name("Juan"+cont)
                 .lastName("Ramirez"+cont++)
@@ -104,8 +111,8 @@ public class Main {
                 .birthday(getLocalDate("2004-04-04"));
     }
 
-    private static Persona createPersona(){
-        return new Persona()
+    private static Profesor createProfesor(){
+        return (Profesor) new Profesor()
                 .name("Pepe"+cont)
                 .lastName("Argento"+cont++)
                 .age(56)

@@ -44,4 +44,18 @@ public class Alumno extends Persona{
                 ", carrera='" + carrera + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Alumno alumno = (Alumno) o;
+        return legajo.equals(alumno.legajo);
+    }
+
+    @Override
+    public int hashCode() {
+        return legajo.hashCode();
+    }
 }
