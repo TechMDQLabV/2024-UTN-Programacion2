@@ -1,6 +1,6 @@
 package models;
 
-public class Alumno extends Persona{
+public class Alumno extends Persona implements  Comparable<Alumno>{
     private String legajo;
     private String carrera;
 
@@ -32,8 +32,8 @@ public class Alumno extends Persona{
 
     public void imprimir(){
         super.imprimir();
-        System.out.println("Legajo.......: " + this.legajo);
-        System.out.println("Carrera......: " + this.carrera);
+        System.out.println("Legajo......: " + this.legajo);
+        System.out.println("Carrera.....: " + this.carrera);
         System.out.println("______________________________________________");
     }
 
@@ -52,6 +52,11 @@ public class Alumno extends Persona{
 
         Alumno alumno = (Alumno) o;
         return legajo.equals(alumno.legajo);
+    }
+
+    @Override
+    public int compareTo(Alumno o) {
+        return legajo.compareTo(o.legajo);
     }
 
     @Override

@@ -1,11 +1,13 @@
 package models;
 
+import interfaces.IPrint;
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Persona {
-    private String id;
+public abstract class Persona implements Comparable<Persona> {
+    private final String id;
     private String name;
     private String lastName;
     private Integer age;
@@ -88,6 +90,11 @@ public abstract class Persona {
                 ", age=" + age +
                 ", birthday=" + birthday +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Persona o) {
+        return this.lastName.compareTo(o.lastName);
     }
 
     @Override
