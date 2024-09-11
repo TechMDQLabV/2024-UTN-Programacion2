@@ -13,7 +13,7 @@ public class PersonasList {
     public PersonasList(int size){
         this.personasList = new ArrayList<>(size);
     }
-    
+
     public void add(Persona persona){
         this.personasList.add(persona);
     }
