@@ -2,8 +2,7 @@ import enums.Dias;
 import enums.Mes;
 import models.*;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 import static utils.UtilGuia1.getLocalDate;
 
@@ -80,7 +79,6 @@ public class Main {
     }
 
     private static void probandoPersonas() {
-
         Personas personas = new Personas(100);
         personas.cargar(createAlumno());
         personas.cargar(createProfesor());
