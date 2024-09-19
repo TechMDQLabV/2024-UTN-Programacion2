@@ -141,4 +141,20 @@ public class Main {
             System.out.println("Cargue el arreglo");
         }
     }
+
+    private static Alumno cargaAlumno(){
+        Alumno a = new Alumno();
+        System.out.println("Ingrese los del Alumno");
+        System.out.println("Nombre.....: ");
+        a.setName(menuScanner.next());
+        System.out.println("Apellido...: ");
+        a.setLastName(menuScanner.next());
+        System.out.println("Edad......: ");
+        a.setAge(menuScanner.nextInt());
+        System.out.println("Legajo.....: ");
+        a.setLegajo(menuScanner.next());
+        System.out.println("Carrera....: ");
+        a.setCarrera(menuScanner.next());
+        return a;
+    }
 }

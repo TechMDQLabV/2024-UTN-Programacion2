@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Scanner;
+
 public class Alumno extends Persona {
     private String legajo;
     private String carrera;

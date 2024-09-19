@@ -1,7 +1,12 @@
 package models;
 
+import mocks.Mocks;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import static utils.UtilGuia1.getLocalDate;
 
 public class PersonasList {
     List<Persona> personasList;
@@ -43,4 +48,10 @@ public class PersonasList {
     public Persona search(Persona p) {
         return personasList.get(personasList.indexOf(p));
     }
+
+    public void sort() {
+        Collections.sort(personasList);
+    }
+
+
 }
