@@ -53,5 +53,11 @@ public class PersonasList {
         Collections.sort(personasList);
     }
 
+    public void cargaLista(int size) {
+        for (int i = 0; i < size; i++) {
+            personasList.add((i % 2 == 0) ? Mocks.createAlumno() : Mocks.createProfesor());
+        }
+
+    }
 
 }
