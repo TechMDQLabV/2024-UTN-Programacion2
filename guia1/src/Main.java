@@ -1,5 +1,6 @@
 import enums.Dias;
 import enums.Mes;
+import mocks.Mocks;
 import models.*;
 
 import java.util.*;
@@ -15,6 +16,7 @@ public class Main {
         Object o = new Object();
 
         int option;
+        System.out.println("Fecha: " + getLocalDate(Mocks.getBirthday()));
         System.out.println("2017-02-09T10:43:19.667Z".substring(0, 10));
         do {
             menu();
@@ -80,19 +82,19 @@ public class Main {
 
     private static void probandoPersonas() {
         Personas personas = new Personas(100);
-        personas.cargar(createAlumno());
-        personas.cargar(createProfesor());
-        personas.cargar(createAlumno());
-        personas.cargar(createProfesor());
-        personas.cargar(createAlumno());
-        Persona p = createProfesor();
+        personas.cargar(Mocks.createAlumno());
+        personas.cargar(Mocks.createProfesor());
+        personas.cargar(Mocks.createAlumno());
+        personas.cargar(Mocks.createProfesor());
+        personas.cargar(Mocks.createAlumno());
+        Persona p = Mocks.createProfesor();
         personas.cargar(p);
         personas.cargar(new Profesor()
                 .asignatura("Programación II")
                 .name("Juan")
                 .lastName("Martinez")
                 .age(45));
-        personas.cargar(createAlumno());
+        personas.cargar(Mocks.createAlumno());
         personas.cargar(new Profesor().name("Anibal").lastName("Fernandez"));
         personas.cargar(new Profesor().lastName("Ramirez").age(57));
         personas.mostrar();
@@ -100,28 +102,9 @@ public class Main {
     }
 
     private static void probandoAlumno() {
-        Alumno a = createAlumno();
+        Alumno a = Mocks.createAlumno();
 
         a.imprimir();
-    }
-
-    private static Alumno createAlumno() {
-        return (Alumno) new Alumno()
-                .legajo("234")
-                .carrera("TUP")
-                .name("Juan" + cont)
-                .lastName("Ramirez" + cont++)
-                .age(23)
-                .birthday(getLocalDate("2004-04-04"));
-    }
-
-    private static Profesor createProfesor() {
-        return (Profesor) new Profesor()
-                .asignatura("Programación II")
-                .name("Pepe" + cont)
-                .lastName("Argento" + cont++)
-                .age(56)
-                .birthday(getLocalDate("2017-02-09T10:43:19.667Z"));
     }
 
     private static void probandoJson() {

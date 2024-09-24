@@ -51,27 +51,8 @@ public class Personas {
 
     private void createPersons(int n) {
         for (int i = 0; i < n; i++) {
-            personas[i]=(i % 2 == 0)?createAlumno():createProfesor();
+            personas[i]=(i % 2 == 0)?Mocks.createAlumno():Mocks.createProfesor();
         }
 
-    }
-
-    private Alumno createAlumno() {
-        return (Alumno) new Alumno()
-                .legajo(Mocks.getLegajo())
-                .carrera(Mocks.getCarrera())
-                .name(Mocks.getName())
-                .lastName(Mocks.getLastName())
-                .age(Mocks.getAge())
-                .birthday(getLocalDate(Mocks.getBirthday()));
-    }
-
-    private Profesor createProfesor() {
-        return (Profesor) new Profesor()
-                .asignatura(Mocks.getAsignatura())
-                .name(Mocks.getName())
-                .lastName(Mocks.getLastName())
-                .age(Mocks.getAge())
-                .birthday(getLocalDate(Mocks.getBirthday()));
     }
 }
