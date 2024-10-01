@@ -34,19 +34,17 @@ public class Articulos {
     public boolean addStock(int id, int cantidad){
         for (AbstractArticulo articulo : articulos) {
             if(articulo.getIdInt() == id){
-                articulo.setStock(articulo.getStock() + cantidad);
+                articulo.addStock(cantidad);
                 return true;
             }
         }
         return false;
-
     }
 
     public boolean venta(int id, int cantidad){
         for (AbstractArticulo articulo : articulos) {
-            if(articulo.getIdInt() == id && articulo.getStock() >= cantidad){
-                articulo.setStock(articulo.getStock() - cantidad);
-                return true;
+            if(articulo.getIdInt() == id){
+                return articulo.substractStock(cantidad);
             }
         }
         return false;
@@ -59,6 +57,33 @@ public class Articulos {
     public void show(){
         for (AbstractArticulo articulo : articulos) {
             articulo.show();
+        }
+    }
+
+    public void showFilter(String className){
+        printTitle(" Lista de " + className);
+        for (AbstractArticulo articulo : articulos) {
+            if(articulo.getClass().getSimpleName().equals(className)){
+                articulo.show();
+            }
+        }
+    }
+
+    public void showFilter(Class classType){
+        printTitle(" Lista de " + classType.getSimpleName());
+        for (AbstractArticulo articulo : articulos) {
+            if(articulo.getClass().equals(classType)){
+                articulo.show();
+            }
+        }
+    }
+
+    public <T> void showFilter2(T classType){
+        printTitle(" Lista de " + classType.getClass().getSimpleName());
+        for (AbstractArticulo articulo : articulos) {
+            if(articulo.getClass().equals(classType)){
+                articulo.show();
+            }
         }
     }
 

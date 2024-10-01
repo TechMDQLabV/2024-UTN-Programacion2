@@ -45,6 +45,18 @@ public abstract class AbstractArticulo implements Comparable<AbstractArticulo> {
         return stock;
     }
 
+    public void addStock(int stock){
+        this.stock += stock;
+    }
+
+    public boolean substractStock(int stock){
+        if(this.stock >= stock){
+            this.stock -= stock;
+            return true;
+        }
+        return false;
+    }
+
     public AbstractArticulo stock(int stock) {
         this.stock = stock;
         return this;

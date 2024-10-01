@@ -1,5 +1,12 @@
 import models.AbstractArticulo;
 import models.Articulos;
+import models.Clavo;
+import models.Tornillo;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+import java.util.Vector;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +34,9 @@ public class Main {
         System.out.println("Stock despues de vender: " + venta.getStock() + " Resultado de la venta: " + resultVenta);
         showArticulo(venta);
 
+        System.out.println("<<<<<<<<<<<<<<<<<< ShowFilter >>>>>>>>>>>>>>>>>>");
+        articulos.showFilter(Tornillo.class.getSimpleName());
+        articulos.showFilter(Tornillo.class);
 
     }
 
