@@ -99,6 +99,8 @@ public class Main {
         personas.cargar(new Profesor().lastName("Ramirez").age(57));
         personas.mostrar();
         System.out.println(Dias.DOMINGO.getName() + Dias.DOMINGO.getOrden());
+        System.out.println("getGenericInterfaces...: " + Arrays.toString(Personas.class.getGenericInterfaces()));
+        System.out.println("getAnnotatedInterfaces.3: " + Arrays.toString(Personas.class.getAnnotatedInterfaces()));
     }
 
     private static void probandoAlumno() {

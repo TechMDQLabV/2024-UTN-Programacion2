@@ -1,8 +1,11 @@
 package models;
 
+import exceptions.ProductoInexistenteException;
 import models.mock.Mocks;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,6 +32,16 @@ public class Articulos {
             }
         }
         return null;
+    }
+
+    public void removeArticulo(int id) throws ProductoInexistenteException {
+        for (AbstractArticulo articulo : articulos) {
+            if(articulo.getIdInt() == id){
+                articulos.remove(articulo);
+                break;
+            }
+        }
+        throw new ProductoInexistenteException("El producto con id " + id + " no existe");
     }
 
     public boolean addStock(int id, int cantidad){
@@ -69,7 +82,7 @@ public class Articulos {
         }
     }
 
-    public void showFilter(Class classType){
+    public void showFilter(Class<?> classType){
         printTitle(" Lista de " + classType.getSimpleName());
         for (AbstractArticulo articulo : articulos) {
             if(articulo.getClass().equals(classType)){
@@ -85,6 +98,19 @@ public class Articulos {
                 articulo.show();
             }
         }
+    }
+
+    public void showClass(Class<?> classType){
+        System.out.println("class: " + classType);
+        System.out.println("getClass: " + classType);
+        System.out.println("getSimpleName: " + classType.getSimpleName());
+        System.out.println("getName: " + classType.getName());
+        System.out.println("getTypeName: " + classType.getTypeName());
+        System.out.println("getCanonicalName: " + classType.getCanonicalName());
+        System.out.println("GetGenericSuperclass: " + classType.getGenericSuperclass());
+        System.out.println("getGenericInterfaces: " + Arrays.toString(classType.getGenericInterfaces()));
+        System.out.println("getGenericSuperclass().getTypeName: " + classType.getGenericSuperclass().getTypeName());
+        System.out.println("getGenericSuperclass().getClass: " + classType.getGenericSuperclass().getClass());
     }
 
     public void showClavos(){

@@ -1,7 +1,5 @@
 package models;
 
-import interfaces.IPrint;
-
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;

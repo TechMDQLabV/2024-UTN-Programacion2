@@ -1,17 +1,16 @@
+import exceptions.ProductoInexistenteException;
 import models.AbstractArticulo;
 import models.Articulos;
-import models.Clavo;
+import models.HerramientaElectrica;
+import models.HerramientaManual;
 import models.Tornillo;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
-import java.util.Vector;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+        long startTime = System.currentTimeMillis();
         Articulos articulos = new Articulos(100);
-
+        long endTime = System.currentTimeMillis();
+        System.out.println("Tiempo de ejecucion: " + (endTime - startTime) + " ms");
         articulos.sort();
         articulos.show();
         articulos.showClavos();
@@ -37,10 +36,22 @@ public class Main {
         System.out.println("<<<<<<<<<<<<<<<<<< ShowFilter >>>>>>>>>>>>>>>>>>");
         articulos.showFilter(Tornillo.class.getSimpleName());
         articulos.showFilter(Tornillo.class);
+        articulos.showFilter2(HerramientaManual.class);
+        articulos.showClass(HerramientaElectrica.class);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hola").append(" ").append("Mundo");
+        StringBuffer stringBuffer = new StringBuffer();
 
+
+        try {
+            articulos.removeArticulo(5000);
+        } catch (ProductoInexistenteException e) {
+            //e.printStackTrace();
+           System.out.println(e.getMessage());
+        }
     }
 
-    public static void showArticulo(AbstractArticulo articulo){
+    public static void showArticulo(AbstractArticulo articulo) {
         articulo.show();
     }
 }
