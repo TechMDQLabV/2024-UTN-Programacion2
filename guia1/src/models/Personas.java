@@ -1,5 +1,6 @@
 package models;
 
+import interfaces.IPrint;
 import mocks.Mocks;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 import static utils.UtilGuia1.getLocalDate;
 
-public class Personas {
+public class Personas implements IPrint {
     private int v;
     private final int dim;
     private final Persona[] personas;

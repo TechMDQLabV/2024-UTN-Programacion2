@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
+import java.util.Map;
 import java.util.Random;
 
 import static utils.UtilGuia1.getLocalDate;
@@ -21,8 +22,8 @@ public class PersonsJSON {
             JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(PATH_RESOURCES + PATH_PERSONS));
 
             JSONArray jsonArray = (JSONArray) jsonObject.get("persons");
-            for (int i = 0; i < jsonArray.size(); i++) {
-                JSONObject jsonPerson = (JSONObject) jsonArray.get(i);
+            for (Object o : jsonArray) {
+                JSONObject jsonPerson = (JSONObject) o;
                 personArray.cargar(new Alumno()
                         .legajo((String) jsonPerson.get("dni"))
                         .carrera("TUP")
